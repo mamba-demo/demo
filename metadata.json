@@ -1,0 +1,38 @@
+[
+    {
+        "id": "A1",
+        "metadata": {
+            "type": "OTLS",
+            "Patient": "John Doe"
+        },
+        "dimensions": {
+            "width": 1100,
+            "depth": 650,
+            "height": 151
+        }
+    },
+    {
+        "id": "A2",
+        "metadata": {
+            "type": "CT",
+            "Patient": "Jim Doe"
+        },
+        "dimensions": {
+            "width": 2200,
+            "depth": 1300,
+            "height": 351
+        }
+    },
+    {
+        "id": "A3",
+        "metadata": {
+            "type": "OTLS",
+            "Patient": "Jane Doe"
+        },
+        "dimensions": {
+            "width": 523,
+            "depth": 7065,
+            "height": 300
+        }
+    }
+]

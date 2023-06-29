@@ -1,0 +1,57 @@
+/* Metadata panel styling */
+#metadata-panel {
+    position: absolute;
+    width: 400px;
+    height: 100%;
+    left: 0;
+    background-color: rgba(33, 33, 33, 0.9);
+    /* dark grey with 90% opacity */
+    color: #fff;
+    /* white text */
+    overflow-y: auto;
+    padding: 20px;
+    box-sizing: border-box;
+    border-right: 2px solid #ddd;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+
+#metadata-panel.show {
+    transform: translateX(0);
+}
+
+/* Button styling */
+#panel-toggle {
+    position: absolute;
+    top: 50%;
+    left: 400px;
+    padding: 15px 10px;
+    background-color: #c800ff9f;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease-in-out;
+    transform: translateY(-50%);
+}
+
+#panel-toggle:hover {
+    background-color: #c800ff;
+}
+
+/* Dropdown styling */
+#slide-select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+/* Metadata item styling */
+#metadata-panel>div {
+    margin-bottom: 10px;
+}
