@@ -1,0 +1,8 @@
+[
+    {
+        "origin": ["https://mamba-demo.github.io"],
+        "responseHeader": ["Content-Type"],
+        "method": ["GET", "HEAD", "DELETE"],
+        "maxAgeSeconds": 3600
+    }
+]
