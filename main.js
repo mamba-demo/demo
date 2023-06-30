@@ -13,8 +13,8 @@ let viewer_top = new Viewer('div-viewer-top', METADATA, 'https://storage.googlea
 let sliders = new Sliders(METADATA);
 
 // Load data
-// controller.update(controller.dropdown.value)
-// viewer_top.load(controller.dropdown.value);
+controller.update(controller.dropdown.value)
+viewer_top.load(controller.dropdown.value);
 // viewer_bottom.load(controller.dropdown.value);
 
 // Link control buttons with top viewer
@@ -31,7 +31,7 @@ viewer_top.animate();
 // viewer_bottom.animate();
 
 // Activate control panel
-// controller.control([viewer_top], sliders);
+controller.control([viewer_top], sliders);
 
 // Link sliders to viewer
-// sliders.activate([viewer_top])
+sliders.activate([viewer_top])
