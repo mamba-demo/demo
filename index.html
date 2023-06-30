@@ -2,9 +2,9 @@
 <html>
 
 <head>
-    <title>3D Viewer</title>
+    <title>MAMBA Demo</title>
     <!-- Add favicon -->
-    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="icon" href="/favicon.png" type="image/png">
     
     <!-- Imports for THREE.js -->
     <script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
@@ -24,6 +24,9 @@
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
 
+    <!-- Import Ubuntu font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu">
+
     <!-- Custom styles -->
     <link rel="stylesheet" type="text/css" href="styles/viewer.css">
     <link rel="stylesheet" type="text/css" href="styles/panel.css">
@@ -33,10 +36,24 @@
 <body>
     <div id="div-viewer-top"></div>
     <!-- <div id="div-render-bottom"></div> -->
+
+    <div id="div-tutorial">
+        <p>Left click and drag to orbit</p>
+        <p>Right click and drag to pan</p>
+        <p>Scroll to zoom</p>
+    </div>
+
+    <div id="div-colorbar">
+        <div id="colorbar-label-top">Bad</div>
+        <div id="colorbar"></div>
+        <div id="colorbar-label-bottom">Good</div>
+    </div>
+    
+
     <div id="div-interactives">
         <div id="div-viewer-buttons">
             <button class="button-heatmap raw" id="button-heatmap">Heatmap</button>
-            <button class="button-autorotate active" id="button-autorotate"><i class="fas fa-sync-alt"></i></button>
+            <button class="button-autorotate" id="button-autorotate"><i class="fas fa-sync-alt"></i></button>
         </div>
         <div class="div-slider">
             <button class="button-camera" id="button-camera-y">Y</button>
@@ -62,7 +79,7 @@
     </div>
     <button id="panel-toggle"><<</button>
 
-    <script type="module" src="main.js"></script>
+    <script type="module" src="/main.js"></script>
 </body>
 
 

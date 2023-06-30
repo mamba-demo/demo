@@ -1,9 +1,9 @@
 [
     {
-        "id": "A4",
+        "id": "CT_31263",
         "metadata": {
-            "type": "OTLS",
-            "Patient": "John Doe"
+            "type": "CT",
+            "Patient": "31263"
         },
         "dimensions": {
             "width": 1100,
@@ -12,27 +12,63 @@
         }
     },
     {
-        "id": "A2",
+        "id": "CT_35357",
         "metadata": {
             "type": "CT",
-            "Patient": "Jim Doe"
+            "Patient": "35357"
         },
         "dimensions": {
-            "width": 2200,
-            "depth": 1300,
-            "height": 351
+            "width": 950,
+            "depth": 649,
+            "height": 151
         }
     },
     {
-        "id": "A3",
+        "id": "CT_38914",
         "metadata": {
-            "type": "OTLS",
-            "Patient": "Jane Doe"
+            "type": "CT",
+            "Patient": "38914"
         },
         "dimensions": {
-            "width": 523,
-            "depth": 7065,
-            "height": 300
+            "width": 1000,
+            "depth": 624,
+            "height": 101
+        }
+    },
+    {
+        "id": "OTLS_c002",
+        "metadata": {
+            "type": "OTLS",
+            "Patient": "c002"
+        },
+        "dimensions": {
+            "width": 261,
+            "depth": 3532,
+            "height": 150
+        }
+    },
+    {
+        "id": "OTLS_c040",
+        "metadata": {
+            "type": "OTLS",
+            "Patient": "c040"
+        },
+        "dimensions": {
+            "width": 210,
+            "depth": 2650,
+            "height": 101
+        }
+    },
+    {
+        "id": "OTLS_c049",
+        "metadata": {
+            "type": "OTLS",
+            "Patient": "c049"
+        },
+        "dimensions": {
+            "width": 175,
+            "depth": 2950,
+            "height": 101
         }
     }
 ]

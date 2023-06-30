@@ -55,3 +55,41 @@
 #metadata-panel>div {
     margin-bottom: 10px;
 }
+
+/* Logo div styles */
+.div-logo-top {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 60%;
+}
+
+/* Logo div styles */
+.div-logo-bottom {
+    margin-top: 45vh;
+    /* display: flex; */
+    /* justify-content: flex-start; */
+    align-items: center;
+    width: 80%;
+    padding-left: 40px;
+}
+
+/* Logo image styles */
+.logo-mamba {
+    width: 50%;
+}
+
+/* Link styles */
+.logo-mamba-link {
+    margin-left: -10px;
+    font-size: 4em;
+    color: rgb(255, 255, 255);
+    font-family: 'Ubuntu';
+    text-decoration: none;
+}
+
+/* Fullwidth logo styles */
+.logos-fullwidth {
+    width: 90%;
+    margin-top: 20px;
+}

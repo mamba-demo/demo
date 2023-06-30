@@ -16,7 +16,7 @@ export class Viewer {
         // Initialize camera
         this.camera = new THREE.PerspectiveCamera(75, this.container.offsetWidth / this.container.offsetHeight, 0.1, 1000);
         this.camera.position.y = 3;
-        this.camera.position.z = -2;
+        this.camera.position.z = 2;
 
         // Initialize scene
         this.scene = new THREE.Scene();
@@ -29,7 +29,7 @@ export class Viewer {
         this.controls.enableDamping = true;
         this.controls.dampingFactor = 0.25;
         this.controls.enableZoom = true;
-        this.controls.autoRotate = true;
+        this.controls.autoRotate = false;
         this.controls.autoRotateSpeed = -1.0;  // set rotation speed to -2.0 degrees per second
 
         // Bind the animate and resize methods to this
@@ -228,13 +228,16 @@ export class Viewer {
     heatmap_button() {
         // Grab mode toggle button element
         let mode_toggle = document.getElementById('button-heatmap');
+        let colorbar = document.getElementById('div-colorbar');
         mode_toggle.addEventListener('click', () => {
             if (mode_toggle.classList.contains('active')) {
-                this.mode = 'raw/';
-                this.slice({x: [this.bounds.left, this.bounds.right], y: [this.bounds.top, this.bounds.bottom], z: [this.bounds.back, this.bounds.front]});
+                this.mode = 'raw';
+                this.slice({ x: [this.bounds.left, this.bounds.right], y: [this.bounds.top, this.bounds.bottom], z: [this.bounds.back, this.bounds.front] });
+                colorbar.style.display = 'none';
             } else {
-                this.mode = 'heatmap/';
-                this.slice({x: [this.bounds.left, this.bounds.right], y: [this.bounds.top, this.bounds.bottom], z: [this.bounds.back, this.bounds.front]});
+                this.mode = 'heatmap';
+                this.slice({ x: [this.bounds.left, this.bounds.right], y: [this.bounds.top, this.bounds.bottom], z: [this.bounds.back, this.bounds.front] });
+                colorbar.style.display = 'flex';
             }
             mode_toggle.classList.toggle('active');
         });
@@ -250,12 +253,32 @@ export class ControlPanel {
         // Load metadata
         this.metadata = metadata;
 
+        // Create div for logo and link
+        let logo_div_top = document.createElement('div');
+        logo_div_top.classList.add('div-logo-top'); // add class
+
+        // Add logo.png
+        let logo_mamba = document.createElement('img');
+        logo_mamba.src = 'logos/mamba.png';
+        logo_mamba.classList.add('logo-mamba'); // add class
+        logo_div_top.appendChild(logo_mamba);
+
+        // Add link
+        let link = document.createElement('a');
+        link.href = '';
+        link.innerHTML = 'MAMBA';
+        link.classList.add('logo-mamba-link'); // add class
+        logo_div_top.appendChild(link);
+
+        // Append the top logo div to the panel
+        this.panel.appendChild(logo_div_top);
+
         // Add dropdown
         this.dropdown = document.getElementById('slide-select');
         this.metadata.forEach(slide => {
             let option = document.createElement('option');
             option.value = slide.id;
-            option.textContent = 'Slide ' + slide.id;
+            option.textContent = 'Block ' + slide.id;
             this.dropdown.appendChild(option);
         });
         this.panel.appendChild(this.dropdown);
@@ -282,7 +305,7 @@ export class ControlPanel {
         let slide_data = this.metadata.find(slide => slide.id === slide_id);
 
         // Clear panel
-        while (this.panel.children.length > 1) {
+        while (this.panel.children.length > 2) {
             this.panel.removeChild(this.panel.lastChild);
         }
 
@@ -292,6 +315,30 @@ export class ControlPanel {
             div.innerHTML = '<b>' + key.charAt(0).toUpperCase() + key.slice(1) + '</b>: ' + value; // capitalize the property and bold the key
             this.panel.appendChild(div);
         });
+
+        // Create div for bottom logos
+        let logo_div_bottom = document.createElement('div');
+        logo_div_bottom.classList.add('div-logo-bottom'); // add class
+
+        // Add logos
+        let logo_lab = document.createElement('img');
+        logo_lab.src = 'logos/lab.png';
+        logo_lab.classList.add('logos-fullwidth'); // add class
+        logo_div_bottom.appendChild(logo_lab);
+
+        let logo_hms = document.createElement('img');
+        logo_hms.src = 'logos/hms.png';
+        logo_hms.classList.add('logos-fullwidth'); // add class
+        logo_div_bottom.appendChild(logo_hms);
+
+        let logo_bwh = document.createElement('img');
+        logo_bwh.src = 'logos/bwh.png';
+        logo_bwh.classList.add('logos-fullwidth'); // add class
+        logo_div_bottom.appendChild(logo_bwh);
+
+        // Append the bottom logo div to the panel
+        this.panel.appendChild(logo_div_bottom);
+
     }
 
     // Activate controller
