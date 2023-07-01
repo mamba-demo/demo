@@ -5,7 +5,7 @@ This is a interactive tissue block viewer developed for the MAMBA project. It al
 Link to site: https://mamba-demo.github.io/demo/
 
 Notes:
-- Data is loaded from a GCP bucket. The bucket name is specified in `main.js`.
+- Data is loaded from a GCP bucket. The bucket name is specified in `main.js`. Must set CORS policy on bucket using `gsutil cors set cors-config.json gs://<bucket-name>`.
 - Tissue block metadata is loaded from `metadata.json`.
 - 3D slices are precomputed from a source y-stack of images by `main.ipynb`.
 
