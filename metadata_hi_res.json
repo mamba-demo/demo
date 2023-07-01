@@ -6,9 +6,9 @@
             "Patient": "31263"
         },
         "dimensions": {
-            "width": 1100,
-            "depth": 650,
-            "height": 176
+            "x": 2200,
+            "z": 1300,
+            "y": 351
         }
     },
     {
@@ -18,9 +18,9 @@
             "Patient": "35357"
         },
         "dimensions": {
-            "width": 950,
-            "depth": 649,
-            "height": 151
+            "x": 1900,
+            "z": 1299,
+            "y": 301
         }
     },
     {
@@ -30,9 +30,9 @@
             "Patient": "38914"
         },
         "dimensions": {
-            "width": 1000,
-            "depth": 624,
-            "height": 101
+            "x": 2000,
+            "z": 1249,
+            "y": 201
         }
     },
     {
@@ -42,9 +42,9 @@
             "Patient": "c002"
         },
         "dimensions": {
-            "width": 261,
-            "depth": 3532,
-            "height": 150
+            "x": 523,
+            "z": 7065,
+            "y": 300
         }
     },
     {
@@ -54,9 +54,9 @@
             "Patient": "c040"
         },
         "dimensions": {
-            "width": 210,
-            "depth": 2650,
-            "height": 101
+            "x": 421,
+            "z": 5300,
+            "y": 201
         }
     },
     {
@@ -66,9 +66,9 @@
             "Patient": "c049"
         },
         "dimensions": {
-            "width": 175,
-            "depth": 2950,
-            "height": 101
+            "x": 350,
+            "z": 5900,
+            "y": 201
         }
     }
 ]

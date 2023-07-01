@@ -50,9 +50,9 @@ export class Viewer {
         this.scene.clear();
 
         // Compute max dimension for normalization
-        this.width = this.metadata.find(slide => slide.id === slide_id).dimensions.width;
-        this.depth = this.metadata.find(slide => slide.id === slide_id).dimensions.depth;
-        this.height = this.metadata.find(slide => slide.id === slide_id).dimensions.height;
+        this.width = this.metadata.find(slide => slide.id === slide_id).dimensions.x;
+        this.depth = this.metadata.find(slide => slide.id === slide_id).dimensions.z;
+        this.height = this.metadata.find(slide => slide.id === slide_id).dimensions.y;
         this.scale_factor = Math.max(this.width, this.depth, this.height) / 3;
 
         // Generate tissue outline
@@ -372,11 +372,11 @@ export class Sliders {
     // Build sliders
     build(slide_id) {
         // Set slider sizes
-        this.width = this.metadata.find(slide => slide.id === slide_id).dimensions.width;
-        this.depth = this.metadata.find(slide => slide.id === slide_id).dimensions.depth;
-        this.height = this.metadata.find(slide => slide.id === slide_id).dimensions.height;
+        this.width = this.metadata.find(slide => slide.id === slide_id).dimensions.x;
+        this.depth = this.metadata.find(slide => slide.id === slide_id).dimensions.z;
+        this.height = this.metadata.find(slide => slide.id === slide_id).dimensions.y;
         this.sliderSizes = { y: this.height, x: this.width, z: this.depth };
-        this.isUpdating = false;   // Semaphore variable to prevent simultaneous updates
+        // this.isUpdating = false;   // Semaphore variable to prevent simultaneous updates
 
         // Generate sliders
         for (let axis in this.sliders) {
@@ -392,17 +392,27 @@ export class Sliders {
 
     // Link sliders to viewer
     activate(viewers) {
-        // Activate slider event listeners
-        for (let axis in this.sliders) {
-            this.sliders[axis].on('slide', (event, ui) => {
-                if (!this.isUpdating) {
-                    this.isUpdating = true;
-                    let slider_values = { y: this.sliders.y.slider('values'), x: this.sliders.x.slider('values'), z: this.sliders.z.slider('values') };
-                    viewers.forEach(viewer => viewer.slice(slider_values));
-                    this.isUpdating = false;
-                }
-            });
-        }
+        // Initialize previous slider values
+        let prevSliderValues = {
+            y: this.sliders.y.slider('values'),
+            x: this.sliders.x.slider('values'),
+            z: this.sliders.z.slider('values')
+        };
+
+        // Start an interval that updates the viewer every 50 milliseconds iff the sliders have changed
+        setInterval(() => {
+            let newSliderValues = {
+                y: this.sliders.y.slider('values'),
+                x: this.sliders.x.slider('values'),
+                z: this.sliders.z.slider('values')
+            };
+
+            // Check if the values have changed
+            if (JSON.stringify(newSliderValues) !== JSON.stringify(prevSliderValues)) {
+                viewers.forEach(viewer => viewer.slice(newSliderValues));
+                prevSliderValues = newSliderValues;
+            }
+        }, 100);
 
         // Activate autoslice listener
         this.autoslice_buttons(viewers);
@@ -426,9 +436,9 @@ export class Sliders {
 
         // Set up autoslice steps to be 1% of width/height/depth
         let autosliceSteps = {
-            y: Math.floor(this.height / 100),
-            x: Math.floor(this.width / 100),
-            z: Math.floor(this.depth / 100)
+            y: 1,
+            x: 1,
+            z: 1
         };
 
         // Event listeners for autoslicer buttons
@@ -444,16 +454,9 @@ export class Sliders {
                     autosliceIntervals[axis] = setInterval(async () => {
                         // Get current values of the slider
                         let values = this.sliders[axis].slider("values");
-
                         // Only increase lower bound if it's 10 less than the upper bound
                         if (values[0] <= values[1] - autosliceSteps[axis]) {
                             this.sliders[axis].slider("values", [values[0] + autosliceSteps[axis], values[1]]);
-                            if (!this.isUpdating) {
-                                this.isUpdating = true;
-                                let slider_values = { y: this.sliders.y.slider('values'), x: this.sliders.x.slider('values'), z: this.sliders.z.slider('values') };
-                                viewers.forEach(viewer => viewer.slice(slider_values));
-                                this.isUpdating = false;
-                            }
                         } else {
                             // Reset lower bound to 0
                             this.sliders[axis].slider("values", [0, values[1]]);
