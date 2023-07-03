@@ -6,8 +6,8 @@ let METADATA = await fetch(`metadata_hi_res.json`).then(response => response.jso
 let controller = new ControlPanel('metadata-panel', METADATA);
 
 // Initialize viewer
-// let viewer = new Viewer('div-viewer-top', METADATA, 'https://storage.googleapis.com/bucket-quickstart_mamba-demo-391400/data_hi_res/', 'raw');
-let viewer = new Viewer('div-viewer-top', METADATA, 'data_hi_res/', 'raw');
+let viewer = new Viewer('div-viewer-top', METADATA, 'https://storage.googleapis.com/bucket-quickstart_mamba-demo-391400/data_hi_res/', 'raw');
+// let viewer = new Viewer('div-viewer-top', METADATA, 'data_hi_res/', 'raw');
 
 // Initialize sliders
 let sliders = new Sliders(METADATA);
