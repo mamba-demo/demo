@@ -116,10 +116,10 @@
 }
 
 .ui-slider .ui-slider-handle {
-    width: 12px;
-    height: 12px;
+    width: 17px;
+    height: 17px;
     background-color: #ffffff;
     border-radius: 50%;
     border: none;
-    top: -5px;
+    top: -8px;
 }

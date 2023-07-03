@@ -1,125 +1,96 @@
-/* Container for all sliders */
-#div-interactives {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;  /* This is new */
-    gap: 20px;
+/* Metadata panel styling */
+#metadata-panel {
     position: absolute;
-    bottom: 30px;
-    right: 20px;
+    width: 400px;
+    height: 100%;
+    left: 0;
+    background-color: rgba(33, 33, 33, 0.9);
+    /* dark grey with 90% opacity */
+    color: #fff;
+    /* white text */
+    overflow-y: auto;
+    padding: 20px;
+    box-sizing: border-box;
+    border-right: 2px solid #ddd;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Container for slider and buttons for single axis */
-.div-slider {
+
+#metadata-panel.show {
+    transform: translateX(0);
+}
+
+/* Button styling */
+#panel-toggle {
+    position: absolute;
+    top: 50%;
+    left: 400px;
+    padding: 15px 10px;
+    background-color: #c800ff9f;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease-in-out;
+    transform: translateY(-50%);
+}
+
+#panel-toggle:hover {
+    background-color: #c800ff;
+}
+
+/* Dropdown styling */
+#slide-select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+/* Metadata item styling */
+#metadata-panel>div {
+    margin-bottom: 10px;
+}
+
+/* Logo div styles */
+.div-logo-top {
     display: flex;
+    justify-content: flex-start;
     align-items: center;
+    width: 60%;
 }
 
-/* Container for viewer buttons */
-.div-viewer-buttons {
-    display: flex;
+/* Logo div styles */
+.div-logo-bottom {
+    position: absolute;
+    bottom: 20px;
+    /* display: flex; */
+    /* justify-content: flex-start; */
     align-items: center;
+    width: 80%;
+    padding-left: 40px;
 }
 
-/* Autoslicer button */
-.button-autoslicer {
-    margin-left: 10px;
-    background-color: rgb(34, 34, 34);
-    color: white;
-    border: none;
-    border-radius: 3px;
-    padding: 2px 5px;
-    font-size: 0.7em;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    max-width: 32px;
-    text-align: center;
+/* Logo image styles */
+.logo-mamba {
+    width: 50%;
 }
 
-/* Autoslicer button (depressed) */
-.button-autoslicer.active {
-    background-color: rgb(163, 163, 163);
+/* Link styles */
+.logo-mamba-link {
+    margin-left: -10px;
+    font-size: 4em;
+    color: rgb(255, 255, 255);
+    font-family: 'Ubuntu';
+    text-decoration: none;
 }
 
-/* Camera button */
-.button-camera {
-    margin-right: 15px;
-    background-color: rgb(34, 34, 34);
-    color: white;
-    border: none;
-    border-radius: 3px;
-    padding: 2px 5px;
-    font-size: 0.8em;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    max-width: 32px;
-    text-align: center;
-}
-
-/* Autorotate button */
-.button-autorotate {
-    background-color: rgb(34, 34, 34);
-    color: white;
-    border: none;
-    border-radius: 3px;
-    padding: 3px 5px;
-    font-size: 0.8em;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    max-width: 28px;
-    text-align: center;
-    margin-left: 5px;
-}
-
-
-/* Autorotate button (depressed) */
-.button-autorotate.active {
-    background-color: rgb(163, 163, 163);
-}
-
-/* Heatmap button */
-.button-heatmap {
-    background-color: rgb(34, 34, 34);
-    color: white;
-    border: none;
-    border-radius: 3px;
-    padding: 3px 5px;
-    font-size: 0.8em;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    max-width: 78px;
-    text-align: center;
-}
-
-/* heatmap button (depressed) */
-.button-heatmap.active {
-    background-color: rgb(163, 163, 163);
-}
-
-/* Slider */
-.slider {
-    width: 200px;
-    position: relative;
-    display: flex;
-    align-items: center;
-}
-
-/* Other jQuery UI slider customizations */
-.ui-slider {
-    background: #000000;
-    height: 1px;
-    flex-grow: 1;
-}
-
-.slider .ui-slider-range {
-    background: rgb(216, 216, 216);
-}
-
-.ui-slider .ui-slider-handle {
-    width: 17px;
-    height: 17px;
-    background-color: #ffffff;
-    border-radius: 50%;
-    border: none;
-    top: -8px;
+/* Fullwidth logo styles */
+.logos-fullwidth {
+    width: 90%;
+    margin-top: 20px;
 }
