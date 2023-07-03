@@ -322,7 +322,7 @@ export class ControlPanel {
 
         // Add logos
         let logo_lab = document.createElement('img');
-        logo_lab.src = 'logos/lab.png';
+        logo_lab.src = 'logos/mahmoodlab.png';
         logo_lab.classList.add('logos-fullwidth'); // add class
         logo_div_bottom.appendChild(logo_lab);
 
@@ -332,7 +332,7 @@ export class ControlPanel {
         logo_div_bottom.appendChild(logo_hms);
 
         let logo_bwh = document.createElement('img');
-        logo_bwh.src = 'logos/bwh.png';
+        logo_bwh.src = 'logos/mgb.svg';
         logo_bwh.classList.add('logos-fullwidth'); // add class
         logo_div_bottom.appendChild(logo_bwh);
 

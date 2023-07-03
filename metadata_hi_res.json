@@ -2,8 +2,10 @@
     {
         "id": "CT_31263",
         "metadata": {
-            "type": "CT",
-            "Patient": "31263"
+            "Patient": "31263",
+            "Cancer": "Prostate cancer",
+            "Imaging Modality": "Microcomputed tomography (microCT)",
+            "Resolution": "4 um/voxel"
         },
         "dimensions": {
             "x": 2200,
@@ -14,8 +16,10 @@
     {
         "id": "CT_35357",
         "metadata": {
-            "type": "CT",
-            "Patient": "35357"
+            "Patient": "35357",
+            "Cancer": "Prostate cancer",
+            "Imaging Modality": "Microcomputed tomography (microCT)",
+            "Resolution": "4 um/voxel"
         },
         "dimensions": {
             "x": 1900,
@@ -26,8 +30,10 @@
     {
         "id": "CT_38914",
         "metadata": {
-            "type": "CT",
-            "Patient": "38914"
+            "Patient": "38914",
+            "Cancer": "Prostate cancer",
+            "Imaging Modality": "Microcomputed tomography (microCT)",
+            "Resolution": "4 um/voxel"
         },
         "dimensions": {
             "x": 2000,
@@ -38,8 +44,10 @@
     {
         "id": "OTLS_c002",
         "metadata": {
-            "type": "OTLS",
-            "Patient": "c002"
+            "Patient": "c002",
+            "Cancer": "Prostate cancer",
+            "Imaging Modality": "Open-top light-sheet microscopy (OTLS)",
+            "Resolution": "1 um/voxel"
         },
         "dimensions": {
             "x": 523,
@@ -50,8 +58,11 @@
     {
         "id": "OTLS_c040",
         "metadata": {
-            "type": "OTLS",
-            "Patient": "c040"
+            "Patient": "c040",
+            "Cancer": "Prostate cancer",
+            "Imaging Modality": "Open-top light-sheet microscopy (OTLS)",
+            "Resolution": "1 um/voxel"
+            
         },
         "dimensions": {
             "x": 421,
@@ -62,8 +73,10 @@
     {
         "id": "OTLS_c049",
         "metadata": {
-            "type": "OTLS",
-            "Patient": "c049"
+            "Patient": "c049",
+            "Cancer": "Prostate cancer",
+            "Imaging Modality": "Open-top light-sheet microscopy (OTLS)",
+            "Resolution": "1 um/voxel"
         },
         "dimensions": {
             "x": 350,
