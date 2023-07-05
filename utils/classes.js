@@ -49,6 +49,11 @@ export class Viewer {
         // Clear scene
         this.scene.clear();
 
+        // Restore camera position
+        this.camera.position.y = 3;
+        this.camera.position.z = 2;
+        this.controls.reset();
+
         // Compute max dimension for normalization
         this.width = this.metadata.find(slide => slide.id === slide_id).dimensions.x;
         this.depth = this.metadata.find(slide => slide.id === slide_id).dimensions.z;
@@ -278,7 +283,7 @@ export class ControlPanel {
         this.metadata.forEach(slide => {
             let option = document.createElement('option');
             option.value = slide.id;
-            option.textContent = 'Block ' + slide.id;
+            option.textContent = slide.id;
             this.dropdown.appendChild(option);
         });
         this.panel.appendChild(this.dropdown);
@@ -427,45 +432,52 @@ export class Sliders {
             z: $("#button-autoslicer-z")
         };
 
-        // Set up autoslice intervals
-        let autosliceIntervals = {
-            y: null,
-            x: null,
-            z: null
-        };
-
-        // Set up autoslice steps to be 1% of width/height/depth
-        let autosliceSteps = {
-            y: 1,
-            x: 1,
-            z: 1
-        };
-
-        // Event listeners for autoslicer buttons
+        // Reset sliders to full range when clicked
         for (let axis in autosliceButtons) {
             autosliceButtons[axis].click(() => {
-                // If the autoslice for this axis is currently running, stop it
-                if (autosliceIntervals[axis]) {
-                    clearInterval(autosliceIntervals[axis]);
-                    autosliceIntervals[axis] = null;
-                    autosliceButtons[axis].removeClass("active");
-                } else {
-                    // Otherwise, start the autoslice
-                    autosliceIntervals[axis] = setInterval(async () => {
-                        // Get current values of the slider
-                        let values = this.sliders[axis].slider("values");
-                        // Only increase lower bound if it's 10 less than the upper bound
-                        if (values[0] <= values[1] - autosliceSteps[axis]) {
-                            this.sliders[axis].slider("values", [values[0] + autosliceSteps[axis], values[1]]);
-                        } else {
-                            // Reset lower bound to 0
-                            this.sliders[axis].slider("values", [0, values[1]]);
-                        }
-                    }, 50); // delay in ms
-                    autosliceButtons[axis].addClass("active");
-                }
+                this.sliders[axis].slider('values', [0, this.sliderSizes[axis] - 1]);
             });
-        }
+        };
+
+    //     // Set up autoslice intervals
+    //     let autosliceIntervals = {
+    //         y: null,
+    //         x: null,
+    //         z: null
+    //     };
+
+    //     // Set up autoslice steps to be 1% of width/height/depth
+    //     let autosliceSteps = {
+    //         y: 1,
+    //         x: 1,
+    //         z: 1
+    //     };
+
+    //     // Event listeners for autoslicer buttons
+    //     for (let axis in autosliceButtons) {
+    //         autosliceButtons[axis].click(() => {
+    //             // If the autoslice for this axis is currently running, stop it
+    //             if (autosliceIntervals[axis]) {
+    //                 clearInterval(autosliceIntervals[axis]);
+    //                 autosliceIntervals[axis] = null;
+    //                 autosliceButtons[axis].removeClass("active");
+    //             } else {
+    //                 // Otherwise, start the autoslice
+    //                 autosliceIntervals[axis] = setInterval(async () => {
+    //                     // Get current values of the slider
+    //                     let values = this.sliders[axis].slider("values");
+    //                     // Only increase lower bound if it's 10 less than the upper bound
+    //                     if (values[0] <= values[1] - autosliceSteps[axis]) {
+    //                         this.sliders[axis].slider("values", [values[0] + autosliceSteps[axis], values[1]]);
+    //                     } else {
+    //                         // Reset lower bound to 0
+    //                         this.sliders[axis].slider("values", [0, values[1]]);
+    //                     }
+    //                 }, 50); // delay in ms
+    //                 autosliceButtons[axis].addClass("active");
+    //             }
+    //         });
+    //     }
     }
 
 }

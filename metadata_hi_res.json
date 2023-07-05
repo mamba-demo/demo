@@ -1,6 +1,6 @@
 [
     {
-        "id": "CT_31263",
+        "id": "(CT) 31263",
         "metadata": {
             "Patient": "31263",
             "Cancer": "Prostate cancer",
@@ -14,7 +14,7 @@
         }
     },
     {
-        "id": "CT_35357",
+        "id": "(CT) 35357",
         "metadata": {
             "Patient": "35357",
             "Cancer": "Prostate cancer",
@@ -28,7 +28,7 @@
         }
     },
     {
-        "id": "CT_38914",
+        "id": "(CT) 38914",
         "metadata": {
             "Patient": "38914",
             "Cancer": "Prostate cancer",
@@ -42,7 +42,7 @@
         }
     },
     {
-        "id": "OTLS_c002",
+        "id": "(OTLS) c002",
         "metadata": {
             "Patient": "c002",
             "Cancer": "Prostate cancer",
@@ -50,13 +50,13 @@
             "Resolution": "1 um/voxel"
         },
         "dimensions": {
-            "x": 523,
-            "z": 7065,
+            "z": 523,
+            "x": 7065,
             "y": 300
         }
     },
     {
-        "id": "OTLS_c040",
+        "id": "(OTLS) c040",
         "metadata": {
             "Patient": "c040",
             "Cancer": "Prostate cancer",
@@ -65,13 +65,13 @@
             
         },
         "dimensions": {
-            "x": 421,
-            "z": 5300,
+            "z": 421,
+            "x": 5300,
             "y": 201
         }
     },
     {
-        "id": "OTLS_c049",
+        "id": "(OTLS) c049",
         "metadata": {
             "Patient": "c049",
             "Cancer": "Prostate cancer",
@@ -79,8 +79,8 @@
             "Resolution": "1 um/voxel"
         },
         "dimensions": {
-            "x": 350,
-            "z": 5900,
+            "z": 350,
+            "x": 5900,
             "y": 201
         }
     }
