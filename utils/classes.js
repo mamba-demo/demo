@@ -54,6 +54,12 @@ export class Viewer {
         this.camera.position.z = 2;
         this.controls.reset();
 
+        // Increase default magnification if slide type is OTLS
+        if (this.metadata.find(slide => slide.id === slide_id).metadata['Imaging Modality'] === "Open-top light-sheet microscopy (OTLS)") {
+            this.camera.zoom = 3;
+            this.camera.updateProjectionMatrix();
+        }
+
         // Compute max dimension for normalization
         this.width = this.metadata.find(slide => slide.id === slide_id).dimensions.x;
         this.depth = this.metadata.find(slide => slide.id === slide_id).dimensions.z;
