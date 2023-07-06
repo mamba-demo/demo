@@ -77,14 +77,14 @@
 
 /* Logo image styles */
 .logo-mamba {
-    width: 50%;
+    width: 60%;
 }
 
 /* Link styles */
 .logo-mamba-link {
     margin-left: -10px;
-    font-size: 4em;
-    color: rgb(255, 255, 255);
+    font-size: 3.5em;
+    color: #c800ff;
     font-family: 'Ubuntu';
     text-decoration: none;
 }
