@@ -39,10 +39,15 @@ export class Viewer {
         // Adjust camera on window resize
         window.addEventListener('resize', this.resize, false);
 
+        // Get loading overlay
+        this.loading_overlay = document.getElementById('div-loading-overlay');
     }
 
     // Load tissue
-    load(slide_id) {
+    async load(slide_id) {
+        // Display loading overlay
+        this.loading_overlay.style.display = "flex";
+
         // Store slide id
         this.slide_id = slide_id;
 
@@ -80,7 +85,10 @@ export class Viewer {
         this.scene.add(this.tissue_block);
 
         // Inititialize textures
-        this.slice({ x: [0, this.width - 1], y: [0, this.height - 1], z: [0, this.depth - 1] });
+        await this.slice({ x: [0, this.width - 1], y: [0, this.height - 1], z: [0, this.depth - 1] });
+
+        // Hide loading overlay
+        this.loading_overlay.style.display = "none";
     }
 
     // Update tissue block
