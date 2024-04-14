@@ -1,6 +1,6 @@
 [
     {
-        "origin": ["https://mamba-demo.github.io"],
+        "origin": ["https://tripath.mahmoodlab.org"],
         "responseHeader": ["Content-Type"],
         "method": ["GET", "HEAD", "DELETE"],
         "maxAgeSeconds": 3600
