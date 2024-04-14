@@ -1,8 +1,8 @@
-# MAMBA Demo Site
+# TriPath Demo Site
 
-This is a interactive tissue block viewer developed for the MAMBA project. It allows full camera controls (orbit, pan, zoom) and dynamic slicing of the tissue block. Interpretability heatmaps may be toggled on and off. Multiple tissue blocks are supported.
+This is a interactive tissue block viewer developed for the TriPath project. It allows full camera controls (orbit, pan, zoom) and dynamic slicing of the tissue block. Interpretability heatmaps may be toggled on and off. Multiple tissue blocks are supported.
 
-Link to site: https://mamba-demo.github.io/demo/
+Link to site: https://tripath-demo.github.io/demo/
 
 Notes:
 - Data is loaded from a GCP bucket. The bucket name is specified in `main.js`. Must set CORS policy on bucket using `gsutil cors set cors-config.json gs://<bucket-name>`.

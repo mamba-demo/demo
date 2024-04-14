@@ -285,7 +285,7 @@ export class ControlPanel {
         // Add link
         let link = document.createElement('a');
         link.href = '';
-        link.innerHTML = 'MAMBA';
+        link.innerHTML = 'TriPath';
         link.classList.add('logo-mamba-link'); // add class
         logo_div_top.appendChild(link);
 
